@@ -1,5 +1,6 @@
 import time
 from datetime import timedelta
+import os
 
 from earth_cam_downloader.m3u8_downloader import M3U8Downloader
 
@@ -20,6 +21,8 @@ class EarthCamDownloader(object):
     def download(self):
         for url, filepath in zip(self.urls, self.filepaths):
             started_at = time.time()
+            if os.path.isfile(filepath) :
+                print(f"INFO : {filepath} exists, skipping")
             print(f"INFO: Downloading {url} to {filepath}")
             m3u8 = M3U8Downloader(uri=url, select_first_playlist=True)
             m3u8.download(filepath)

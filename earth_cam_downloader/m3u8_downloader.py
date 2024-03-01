@@ -19,7 +19,7 @@ class M3U8Downloader:
         headers=None,
         select_first_playlist=False,
         ffmpeg_path="ffmpeg",
-        ffmpeg_loglevel="quiet",
+        ffmpeg_loglevel="verbose",
     ):
         """Initialize a M3U8 Downloader.
         Args:
@@ -77,7 +77,7 @@ class M3U8Downloader:
 
             ffmpeg_cmd = ffmpy.FFmpeg(
                 self.ffmpeg_path,
-                "-y -loglevel {}".format(self.ffmpeg_loglevel),
+                "-y -loglevel {} -preset ultrafast".format(self.ffmpeg_loglevel),
                 inputs={self.uri: None},
                 outputs={output: "-c copy"},
             )
