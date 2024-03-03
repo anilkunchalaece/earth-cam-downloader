@@ -1,0 +1,4 @@
+-e git+https://github.com/anilkunchalaece/earth-cam-downloader@4ec3df3696ba1d9bf9d3fd45b833f4f9c6e9dfb8#egg=earth_cam_downloader
+ffmpy==0.3.0
+iso8601==1.1.0
+m3u8==3.5.0
